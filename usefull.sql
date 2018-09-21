@@ -5,4 +5,4 @@ union
              )
 select * from tvue
 where definition like '%<NomTable>%'
--- test de l'appele d'une table par une vue (materialisée ou  non )
+-- test de l'appel d'une table <NomTable> par une vue (materialisée ou  non )
