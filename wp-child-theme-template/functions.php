@@ -1,8 +1,9 @@
 <?php
 function my_child_theme_enqueue_styles() {
 
-    $parent_style = 'parent-style'; // nom du theme parent
+    $parent_style = 'parent-style'; // nom du theme parent à vérifier dans function.php du parente > @wp_enqueue_style
 
+    // attention à l'ordre
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
     
      /* ajout theme enfany*/
@@ -18,6 +19,8 @@ function my_child_theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'function my_child_theme_enqueue_styles() {
 ' );
+
+
 
 
 ?>
