@@ -17,8 +17,7 @@ function my_child_theme_enqueue_styles() {
 
     // wp_enqueue_style( "style-custom", get_template_directory_uri() . '/assets/style.css' );    
 }
-add_action( 'wp_enqueue_scripts', 'function my_child_theme_enqueue_styles() {
-' );
+add_action( 'wp_enqueue_scripts', 'my_child_theme_enqueue_styles' );
 
 
 
