@@ -18,3 +18,21 @@ select  *  from information_schema.schemata
 select 
 'GRANT SELECT ON ALL TABLES IN SCHEMA '||schema_name||' TO <user>;'
  from information_schema.schemata where catalog_name = <db_name> 
+ 
+ 
+ 
+ --- import donnée de WFS
+ -- 1 creation serv :
+ CREATE SERVER <nomServeur>
+    FOREIGN DATA WRAPPER ogr_fdw
+    OPTIONS (format 'WFS', datasource 'WFS:<URL WFS>');
+    
+ -- 2 enventuellement changemr droits
+ ALTER SERVER wfs_gesteau
+    OWNER TO postgres;
+    
+-- 3 import de 1 ou plusique table
+    IMPORT FOREIGN SCHEMA <namespace du serveur>
+    -- eventuelleme,t 
+    LIMIT TO <nomLayer>
+   FROM SERVER <nomServeur> INTO public -- ou nom de schema local;
